@@ -71,12 +71,6 @@ npm install eslint-plugin-prettier --save-dev
 ```
 
 
-5. 调整项目的打包配置
-
-```
-
-
-```
 
 
 
