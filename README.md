@@ -36,6 +36,48 @@ npm install eslint-plugin-prettier --save-dev
 }
 ```
 
+4. 新增husky & lint-staged 
+```
+
+"husky": "^4.3.8", (husky版本目前有些问题，暂时搞到4.3.8)
+"lint-staged": "^12.3.1",
+
+
+在package.json中添加钩子
+"lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "prettier --write",
+      "eslint",
+      "git add"
+    ],
+    "src/**/*.{scss,css}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+  
+然后新增几个命令
+
+"start": "cross-env BUILD_ENV=local yarn build --watch",
+"build": "cross-env NODE_ENV=production taro build --type weapp",
+"ut": "jest --config ./jest.config.js --no-cache --coverage",
+"lint": "eslint --ext .ts,.tsx src --fix",
+"format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\" \"src/**/*.scss\"",  
+```
+
+
+5. 调整项目的打包配置
+
+```
+
+
+```
+
 
 
 
