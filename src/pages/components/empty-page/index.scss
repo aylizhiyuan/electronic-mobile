@@ -1,0 +1,16 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.emptyPage {
+  @include flex-items();
+  flex-direction: column;
+  padding-top: 62px;
+  font-size: 13px;
+  color: #999;
+
+  .emptyPageImg {
+    width: 119px;
+    height: 181px;
+    margin-bottom: 11px;
+  }
+}

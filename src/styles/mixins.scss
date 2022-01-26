@@ -1,0 +1,79 @@
+@import '~@/variables';
+
+@mixin border-box {
+  box-sizing: border-box;
+}
+
+@mixin tabbar-wrapper {
+  padding-bottom: calc(48px + env(safe-area-inset-bottom));
+}
+
+@mixin position($position: absolute) {
+  position: $position;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin absolute-center($pos: absolute) {
+  position: $pos;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin line($num: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @if ($num == 1) {
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $num;
+
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+  }
+}
+
+@mixin bottomBorder() {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  border-bottom: 1px solid $border-color;
+}
+
+@mixin flex-content($content: center) {
+  display: flex;
+  align-items: center;
+  justify-content: $content;
+}
+
+@mixin flex-items($items: center) {
+  display: flex;
+  align-items: $items;
+}
+
+@mixin overflow($type: x, $value: auto) {
+  // ios 惯性滚动
+  -webkit-overflow-scrolling: touch;
+
+  @if $type == x {
+    overflow-x: $value;
+  } @else if $type == y {
+    overflow-y: $value;
+  } @else if $type == all {
+    overflow: $value;
+  }
+}
