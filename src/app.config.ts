@@ -1,16 +1,15 @@
 export const pages = {
-  home: 'pages/home/home',
+  home: 'pages/home/index',
 }
 export const subpages = {
   // 二级页面
-  myTask: 'pages/subpages/my-task/home',
-  ownerPrincipal: 'pages/subpages/owner-principal/home',
+  myTask: 'pages/subpages/my-task/index',
 }
 
 export default {
   pages: Object.values(pages),
   subpackages: Object.values(subpages).map((page) => ({
-    root: page.replace('/home', ''),
+    root: page.replace('/index', ''),
     pages: ['index'],
   })),
   window: {
